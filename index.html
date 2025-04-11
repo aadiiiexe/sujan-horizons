@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujan Horizons - Kashmir's Premier Travel Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Berkshire+Swash&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #2A5C82;
+      --secondary: #E76F51;
+      --accent: #2A9D8F;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: var(--text);
+    }
+
+    .nav-container {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Berkshire Swash', cursive;
+      font-size: 2rem;
+      color: var(--primary);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    #home {
+      min-height: 100vh;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(45deg, rgba(42,92,130,0.9), rgba(231,111,81,0.9)),
+                  url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+  
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+    }
+
+    #destinations {
+      padding: 6rem 2rem;
+      background: white;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .destination-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .destination-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .destination-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 4px solid var(--secondary);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    #services {
+      padding: 6rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .call-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .call-button:hover {
+      background: var(--secondary);
+    }
+
+    #reviews {
+      padding: 6rem 2rem;
+      background: white;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .review-form {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 15px;
+    }
+
+    #contact {
+      padding: 6rem 2rem;
+      background: var(--primary);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-container">
+    <nav>
+      <div class="logo">Sujan Horizons</div>
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSduAzf7sheIqkt1UxrSgU05KI8lqhJg0eKvCWgfZ2rvCMzPGQ/viewform?usp=dialog" target="_blank" class="call-button" style="background: var(--secondary); color: white; padding: 0.5rem 1rem; border-radius: 30px; font-weight: bold;">Book Now</a>
+      </div>
+    </nav>
+  </div>
+  
+
+  <section id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Experience Kashmir's Magic</h1>
+      <p class="hero-subtitle">Travel With Us And Feel The Difference</p>
+    </div>
+  </section>
+
+  <section id="destinations">
+    <h2 class="section-title">Our Destinations</h2>
+    <div class="destination-grid">
+      <div class="destination-card">
+        <img src="images/pahalgam.jpg" alt="Pahalgam Valley">
+        <div class="card-content">
+          <h3>Pahalgam</h3>
+          <p>Serene valleys and breathtaking landscapes</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="images/srinagar.jpg" alt="Srinagar Houseboats">
+        <div class="card-content">
+          <h3>Srinagar</h3>
+          <p>Iconic Dal Lake houseboat experience</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="images/sonamarg.jpg" alt="Sonamarg Meadows">
+        <div class="card-content">
+          <h3>Sonamarg</h3>
+          <p>Golden meadows and alpine adventures</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="images/gulmarg.jpg" alt="Gulmarg Ski Resort">
+        <div class="card-content">
+          <h3>Gulmarg</h3>
+          <p>World-class skiing and mountain views</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <i class="fas fa-car service-icon"></i>
+        <h3>Cab Services</h3>
+        <p>Premium AC vehicles with experienced drivers</p>
+        <a href="tel:+919149953106" class="call-button">Call to Book</a>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-hotel service-icon"></i>
+        <h3>Hotel Stays</h3>
+        <p>4-star & 5-star accommodations</p>
+        <a href="tel:+919149953106" class="call-button">Call to Book</a>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-suitcase service-icon"></i>
+        <h3>Tour Packages</h3>
+        <p>Customized itineraries for all needs</p>
+        <a href="tel:+919149953106" class="call-button">Call to Book</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h2 class="section-title">Customer Reviews</h2>
+    <div class="review-grid" id="reviewsContainer"></div>
+    <div class="review-form">
+      <h3>Share Your Experience</h3>
+      <form id="reviewForm">
+        <input type="text" placeholder="Your Name" required />
+        <textarea placeholder="Your Review..." rows="4" required></textarea>
+        <button type="submit" class="call-button">Submit Review</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-info">
+      <p>📧 sujantravels11@gmail.com</p>
+      <p>📞 +91 91499 53106</p>
+      <p>📞 +91 91039 27537</p>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = this.elements[0].value;
+      const review = this.elements[1].value;
+
+      const reviewCard = document.createElement('div');
+      reviewCard.className = 'review-card';
+      reviewCard.innerHTML = `<h4>${name}</h4><p>"${review}"</p>`;
+
+      document.getElementById('reviewsContainer').prepend(reviewCard);
+      this.reset();
+      alert('Thank you for your review!');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
